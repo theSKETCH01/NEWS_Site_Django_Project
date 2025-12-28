@@ -1,0 +1,15 @@
+{% extends 'news/base.html' %}
+
+{% block content %}
+<h2>My News</h2>
+
+{% for n in news %}
+<div class="card">
+    <h3>{{ n.title }}</h3>
+    <a href="/edit/{{ n.id }}/">Edit</a> |
+    <a href="/delete/{{ n.id }}/">Delete</a>
+</div>
+{% empty %}
+<p>You have not posted any news.</p>
+{% endfor %}
+{% endblock %}

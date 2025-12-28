@@ -1,0 +1,15 @@
+{% extends 'news/base.html' %}
+
+{% block content %}
+<h2>Latest News</h2>
+
+{% for n in news %}
+<div class="card">
+    <h3>{{ n.title }}</h3>
+    <small>{{ n.get_category_display }} | {{ n.created_at|date:"d M Y" }}</small>
+    <p>{{ n.content|truncatewords:30 }}</p>
+</div>
+{% empty %}
+<p>No news available.</p>
+{% endfor %}
+{% endblock %}
